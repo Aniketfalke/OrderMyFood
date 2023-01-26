@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: RESTAURANT-SERVICE
+        uri: lb://restaurant-service
+        predicates:
+        - Path= /restaurant/**
+        
+      - id: ORDER-SERVICE
+        uri: lb://order-service
+        predicates:
+        - Path= /order/** 
